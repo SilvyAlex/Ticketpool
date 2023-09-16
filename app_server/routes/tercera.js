@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 // controllers
-const ctrlSegunda = require('../controllers/segunda');
+const ctrlTercera = require('../controllers/tercera');
 
 
 /* GET home page. */
-router.get('/', ctrlSegunda.segunda);
+router.get('/', ctrlTercera.tercera);
 
 
 module.exports = router;
