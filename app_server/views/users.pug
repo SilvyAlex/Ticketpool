@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Users
+  p Welcome to #{tittle}
+  pre Ord. Nombre         Apellido           Direccion 
+  - let ord=0
+  each ususario in usuarios
+  - ord++
+    pre #{ord}     #{usuario.nombre}      #{usuario.apellido}        #{usuario.direccion} 

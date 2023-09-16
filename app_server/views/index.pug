@@ -1,5 +1,208 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    // bootstrap css
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", rel="stylesheet")
+    // bootstrap js and popper
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
+  body
+    header.p-3.text-bg-dark
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+          a.d-flex.align-items-center.mb-2.mb-lg-0.text-white.text-decoration-none(href='/')
+            svg.bi.me-2(width='40', height='32', role='img', aria-label='Bootstrap')
+              use(xlink:href='#bootstrap')
+          ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+            li
+              a.nav-link.px-2.text-white(href='#')
+              h2 Ticketpool
+          form.col-12.col-lg-auto.mb-3.mb-lg-0.me-lg-3(role='search')
+            input.form-control.form-control-dark.text-bg-dark(type='search', placeholder='Search...', aria-label='Search')
+          .text-end
+            button.btn.btn-outline-light.me-2(type='button') Login
+            button.btn.btn-outline-danger(type='button') Sing in
+    //carrusel
+    #myCarousel.carousel.slide.mb-6.pointer-event(data-bs-ride='carousel')
+      .carousel-indicators
+        button.active(type='button', data-bs-target='#myCarousel', data-bs-slide-to='0', aria-label='Slide 1', aria-current='true')
+        button(type='button', data-bs-target='#myCarousel', data-bs-slide-to='1', aria-label='Slide 2')
+        button(type='button', data-bs-target='#myCarousel', data-bs-slide-to='2', aria-label='Slide 3')
+      .carousel-inner
+        .carousel-item.active
+          img(src='https://www.24horas.cl/24horas/site/artic/20220909/imag/foto_0000000820220909191755/jj.jpg', alt='Slide 1', width='100%', height='100%')
+          .container
+            .carousel-caption.text-start
+              h1 Jesse & Joy
+              p.opacity-75 Septiembre 15, 20:00, 2023
+              p
+                a.btn.btn-lg.btn-danger(href='app_server/views/segunda.pug') Comprar 
+        .carousel-item
+          img(src='https://www.prensariomusica.com/Multimedios/imgs/57313_750.jpg', alt='Slide 1', width='100%', height='100%')
+          .container
+            .carousel-caption
+              h1 Rauw Alejandro
+              p 8 de octubre del 2023
+              p
+                a.btn.btn-lg.btn-danger(href='#') Comprar
+        .carousel-item
+          img(src='https://elsalvadorgram.com/wp-content/uploads/2023/04/young-miko-el-salvador.jpg', alt='Slide 1', width='100%', height='100%')
+          .container
+            .carousel-caption.text-end
+              h1 Young Miko
+              p 23 de septiembre del 2023
+              p
+                a.btn.btn-lg.btn-danger(href='#') Comprar
+      button.carousel-control-prev(type='button', data-bs-target='#myCarousel', data-bs-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.visually-hidden Previous
+      button.carousel-control-next(type='button', data-bs-target='#myCarousel', data-bs-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.visually-hidden Next
+    //opciones
+    .container
+      header.d-flex.justify-content-center.py-3
+        ul.nav.nav-pills
+          li.nav-item
+            button.btn.btn-outline-danger(type='button') Aproximados
+          li.nav-item
+            button.btn.btn-outline-danger(type='button') Recomendados
+          li.nav-item
+            button.btn.btn-outline-danger(type='button') Conferencias
+    // opciones de conciertos de cadas recomendcion de boton
+    .album.py-5.bg-body-tertiary
+      .pb-2.border-bottom
+        h2 Aproximados 
+        .container
+          .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+            .col
+              .card.shadow-sm
+                a(href='URL-de-la-imagen')
+                  img.card-img-top(src='https://www.24horas.cl/24horas/site/artic/20220909/imag/foto_0000000820220909191755/jj.jpg', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://cdn.teleticket.com.pe/especiales/morat-per22/images/event-artista-res.jpg', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://i.imgur.com/dWyEi0c.png', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+    .album.py-5.bg-body-tertiary
+      .pb-2.border-bottom
+        h2 Recomendados
+        .container
+          .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://cdn-pro.elsalvador.com/wp-content/uploads/2023/02/mora-artista-.jpg', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://enterados.pe/wp-content/uploads/2023/03/ultima-cita-cnco.jpg', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://estaticos-cdn.elperiodico.com/clip/a8fdeda8-4f0f-4dba-824b-03f3fdb0f50b_alta-libre-aspect-ratio_default_0.jpg', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+    .album.py-5.bg-body-tertiary
+      .pb-2.border-bottom
+        h2 Conferencias 
+        .container
+          .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://imagenes.expreso.ec/files/og_thumbnail/uploads/2022/12/21/63a3dabceec5f.png', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://cdn.buenplan.com.ec/pictures/1c257163-9001-4fb7-b90c-cd616f268168.png', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+            .col
+              .card.shadow-sm
+                img.card-img-top(src='https://i0.wp.com/ciudades-comerciojusto.org/wp-content/uploads/2022/08/promo-encuentro-quito.jpg?fit=1280%2C804&ssl=1', alt='Jesse', width='100%', height='225')
+                .card-body
+                  p.card-text
+                    | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                  .d-flex.justify-content-between.align-items-center
+                    .btn-group
+                      button.btn.btn-sm.btn-outline-secondary(type='button') View
+                      button.btn.btn-sm.btn-outline-secondary(type='button') Edit
+                    small.text-body-secondary 9 mins
+    //Fotter
+    .container
+      footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
+        .col-md-4.d-flex.align-items-center
+          a.mb-3.me-2.mb-md-0.text-body-warning.text-decoration-none.lh-1(href='/')
+          span.mb-3.mb-md-0.text-body-warning &copy; 2023 Desarrollo Web 3
+        ul.nav.col-md-4.justify-content-end.list-unstyled.d-flex
+          li.ms-3
+            a.text-body-warning(href='#')
+              svg.bi(width='24', height='24')
+                use(xlink:href='#twitter')
+          li.ms-3
+            a.text-body-warning(href='#')
+              svg.bi(width='24', height='24')
+                use(xlink:href='#instagram')
+          li.ms-3
+            a.text-body-warning(href='#')
+              svg.bi(width='24', height='24')
+                use(xlink:href='#facebook')
+    
