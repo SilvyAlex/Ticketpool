@@ -1,4 +1,4 @@
-const { default: mongoose } = require('mongoose');
+/*const { default: mongoose } = require('mongoose');
 const Mongoose = require('mongoose');
 const readLine = require('readline'); //para leer la línea de comandos
 
@@ -62,4 +62,4 @@ const user = new Usuarios({
     fecha: Date.now()
 });
 
-//user.save();
+//user.save();*/

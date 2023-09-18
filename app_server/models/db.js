@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const dbURI = 'mongodb://localhost/dw3_202310_users'; //nombre-db es el nombre de la base de datos. Utilizaré la base de datos por defecto de MongoDB
 const readLine = require('readline'); //para leer la línea de comandos
 
@@ -91,4 +91,4 @@ logDBConnection.on('error', (err) => {
 });
 logDBConnection.on('disconnected', () => {
   console.log('Mongoose desconectado de la base de datos secundaria');
-});
+});*/
