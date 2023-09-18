@@ -2,7 +2,7 @@
 
 // homepage - GET
 const index = (req, res, next)=> {
-    res.render('index', { title: 'Mi Primera página Express' });
+    res.render('index', { title: 'Mi Primera página Heroku' });
   }
 
 module.exports = {
