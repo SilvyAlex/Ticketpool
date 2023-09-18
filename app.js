@@ -15,7 +15,7 @@ const cuartaRouter = require('./app_server/routes/cuarta');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server', 'views'));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Definicion de cuando usar los routers
-app.use('/index', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/segunda', segundaRouter);
 app.use('/tercera', terceraRouter);
