@@ -8,7 +8,7 @@ const logger = require('morgan');
 const indexRouter = require('./app_server/routes/index');
 const segundaRouter = require('./app_server/routes/segunda');
 const terceraRouter = require('./app_server/routes/tercera');
-const cuartaRouter = require('./app_server/routes/cuarta');
+//const cuartaRouter = require('./app_server/routes/cuarta');
 
 const app = express();
 
