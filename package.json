@@ -6,8 +6,8 @@
     "start": "npm install && node ./bin/www"
   },
   "engines": {
-    "node": ">=18.17.1",
-    "npm": ">=9.6.7"
+    "node": "18.17.1",
+    "npm": "9.6.7"
   },
   "dependencies": {
     "cookie-parser": "~1.4.6",
