@@ -4,11 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+require('./app_api/models/db');//incorporo mi modelo a la app
 
 const indexRouter = require('./app_server/routes/index');
 const segundaRouter = require('./app_server/routes/segunda');
 const terceraRouter = require('./app_server/routes/tercera');
 const cuartaRouter = require('./app_server/routes/cuarta');
+const registroRouter = require('./app_server/routes/registro');
+const apiRouter = require('./app_api/routes/index');  // rutas REST API
 
 const app = express();
 
@@ -27,6 +30,8 @@ app.use('/', indexRouter);
 app.use('/segunda', segundaRouter);
 app.use('/tercera', terceraRouter);
 app.use('/cuarta', cuartaRouter); 
+app.use('/registro', registroRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
