@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 const { platform } = require('os');
-const dbURI = 'mongodb://127.0.0.1/ticketpool'; // string de conexión
-//if (process.env.NODE_ENV === 'production'){
-    //dbURI = process.env.MONGODB_URI;
-//}
-
+let dbURI = 'mongodb://127.0.0.1/ticketpool'; // string de conexión
+if (process.env.MONGODBURI){ dbURI = process.env.MONGODBURI }
 
 const readLine = require('readline');
 
