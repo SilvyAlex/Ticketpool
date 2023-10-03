@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const { platform } = require('os');
 const dbURI = 'mongodb://127.0.0.1/ticketpool'; // string de conexión
-if (process.env.NODE_ENV === 'production'){
-    dbURI = process.env.MONGODB_URI;
-}
+//if (process.env.NODE_ENV === 'production'){
+    //dbURI = process.env.MONGODB_URI;
+//}
 
 
 const readLine = require('readline');
@@ -76,25 +76,3 @@ mongoose.connection.on('disconnected', () => {
     console.log('Mongoose se desconectó a: ', dbURI);
 });
 
-// // conexión a mongodb - dw3_202310_users_log
-// const dbURIlog = 'mongodb://localhost/dw3_202310_users_log';
-// const logDB = mongoose.createConnection(dbURIlog, {
-//     family: 4, // probará IPv6, si no funcioná usará IPv4
-//     serverSelectionTimeoutMS: 5000
-// });
-
-// // mensajes de los eventos de conexión - dw3_202310_users_log
-// // conexión exitosa
-// mongoose.connection.on('connected', () => {
-//     console.log('Mongoose se conectó a: ', dbURIlog);
-// });
-
-// // conexión con error
-// mongoose.connection.on('err', () => {
-//     console.log('Mongoose error de conexión a: ', dbURIlog);
-// });
-
-// // desconexión 
-// mongoose.connection.on('disconnected', () => {
-//     console.log('Mongoose se desconectó a: ', dbURIlog);
-// });
