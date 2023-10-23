@@ -27,41 +27,46 @@ const eventoList = (req, res) => {
         .find()
         .exec()
         .then((objetoEvento) => {
-            if (!objetoEvento) { // valido la existencia de documentos en la colección
-              console.log(`No existen documentos en la colección ${eventos}`);
-              return res // no existen documentos en la colección users
-                  .status(404)
-                  .json({
-                      "Mensaje": "Eventos no encontrados"
-                  });
-          } else 
-           res //Responde enviando el/los documento(s) encontrado(s) en formato JSON y con status HTTP 200
-               .status(200)
-               .json(objetoEvento);
-       })
-       .catch((err) => { //find encontró un error
-           res
-               .status(404)
-               .json({ "status": "error list" });
-           console.log(`Se encontró un error en la colección ${eventos}`);
-       })
+            if (objetoEvento.length == 0) { // valido la existencia de documentos en la colección
+                console.log(`No existen documentos en la colección ${eventos}`);
+                return res // no existen documentos en la colección eventos
+                    .status(404)
+                    .json({ "Mensaje": "Eventos no encontrados" });
+            } else
+                res //Responde enviando el/los documento(s) encontrado(s) en formato JSON y con status HTTP 200
+                    .status(200)
+                    .json(objetoEvento);
+        })
+        .catch((err) => { //find encontró un error
+            res
+                .status(404)
+                .json(err);
+            console.log(`Se encontró un error en la colección ${eventos}`);
+        })
 };
 const eventoRead = (req, res) => {
     eventos
         .findById(req.params.eventoid)
         .exec()
         .then((objetoEvento)=>{
-            res
-                .status(200)
-                .json(objetoEvento);
+            if (!objetoEvento) {
+                console.log(`Evento con eventoid ${req.params.eventoid} no encontrado`);
+                return res // no existe un documento con ese eventoid
+                    .status(404)
+                    .json({
+                        "Mensaje": "Evento no encontrado"
+                    });
+            } else
+                res //Responde enviando el documento encontrado en formato JSON y con status HTTP 200
+                    .status(200)
+                    .json(objetoEvento);
         })
-        .catch((err) => {
+        .catch((err) => { //findById encontró un error
             res
                 .status(404)
-                .json({"status":"error read"});
-            console.log(`Error al buscar el evento ${req.params.eventoid}`);
-        })
-        
+                .json(err);
+            console.log(`Error al buscar el usuario con eventoid: ${req.params.eventoid}`);
+        });
 };
 const eventoUpdate = (req, res) => {
     res

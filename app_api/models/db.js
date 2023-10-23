@@ -6,6 +6,9 @@ if (process.env.MONGODBURI){ dbURI = process.env.MONGODBURI }
 const readLine = require('readline');
 
 require('./esquema_eventos'); // definición del esquema
+require('./esquema_boletos');
+require('./esquema_pagos');
+require('./esquema_users');
 
 // escuchar el evento e windows SIGINT
 if (process.platform === 'win32') {

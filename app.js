@@ -11,7 +11,13 @@ const segundaRouter = require('./app_server/routes/segunda');
 const terceraRouter = require('./app_server/routes/tercera');
 const cuartaRouter = require('./app_server/routes/cuarta');
 const registroRouter = require('./app_server/routes/registro');
+const usersRouter = require('./app_server/routes/users');
+
+//Api Routes
 const apiRouter = require('./app_api/routes/index');  // rutas REST API
+const apiboletosRouter = require('./app_api/routes/boletos');  // rutas REST API
+const apipagosRouter = require('./app_api/routes/pagos');  // rutas REST API
+const apiusersRouter = require('./app_api/routes/index_users');  // rutas REST API
 
 const app = express();
 
@@ -31,7 +37,15 @@ app.use('/segunda', segundaRouter);
 app.use('/tercera', terceraRouter);
 app.use('/cuarta', cuartaRouter); 
 app.use('/registro', registroRouter);
+app.use('/users', usersRouter);
+
+
+//Api routess
 app.use('/api', apiRouter);
+app.use('/api', apiboletosRouter);
+app.use('/api', apipagosRouter);
+app.use('/api', apiusersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

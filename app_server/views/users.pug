@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  doctype html
+  html
+    head
+      title Entrar | Ticketpool
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      // bootstrap css
+      link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", rel="stylesheet")
+      // bootstrap js and popper
+      script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
+      link(rel='icon', href='/favicon.ico', type='image/x-icon')
+
+    body
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+          a.d-flex.align-items-center.mb-2.mb-lg-0.text-white.text-decoration-none(href='/')
+            svg.bi.me-2(width='40', height='32', role='img', aria-label='Bootstrap')
+              use(xlink:href='#bootstrap')
+          ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+            li
+              a.nav-link.px-2.text-white(href='#')
+              h2#pageTitle Ticketpool
+          .collapse#account-collapse
+              ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
+              li
+                  a.link-body-emphasis.d-inline-flex.text-decoration-none.rounded(href='/usuarios/add') Nuevo
+              li
+                  a.link-body-emphasis.d-inline-flex.text-decoration-none.rounded(href='/usuarios') Ver
+              li
+                  a.link-body-emphasis.d-inline-flex.text-decoration-none.rounded(href="#") Settings
+              li
+                  a.link-body-emphasis.d-inline-flex.text-decoration-none.rounded(href="#") Sign out
+
+      main.flex-shrink-0
+        .container
+          hr(style='background-color: black;')
+          h1.text-center #{title}
+          table.table.table-hover.table-dark.table-responsive.bg-secondary.table-striped
+            thead.thead-dark.fixed
+              tr
+                th(scope='col') #
+                th(scope='col') Nombre
+                th(scope='col') Correo
+                th(scope='col') Edad
+                th(scope='col') intereses
+                // th(scope='col') Id Documento
+
+            tbody
+              - let pos = 1
+              each user in users
+                tr
+                  td.numero=pos++
+                  td.nombre=user.nombre
+                  td.correo=user.correo
+                  td.edad=user.edad
+                  td.intereses=user.intereses
+                  td.documento(style='display:none;')=user._id
+                  td 
+                    button.btn.btn-outline-light.space.text-warning(type='button' href='#update' data-toggle='modal')
+                      i.fas.fa-edit 
+                    |  
+                    a.btn.btn-outline-light.space.text-danger(type='button' href='/usuario/delete/'+user._id) 
+                      i.far.fa-trash-alt

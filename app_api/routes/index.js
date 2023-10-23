@@ -8,10 +8,10 @@ const express = require('express');
        .post(ctrlEventos.eventoCreate)
        .get(ctrlEventos.eventoList);
 
-   //router
-       //.route('/users/:userid')
-       //.get(ctrlUsers.eventoRead)
-       //.put(ctrlUsers.eventoUpdate)
-       //.delete(ctrlUsers.eventoDelete);
+   router
+       .route('/eventos/:eventoid')
+       .get(ctrlEventos.eventoRead)
+       .put(ctrlEventos.eventoUpdate)
+       .delete(ctrlEventos.eventoDelete);
 
    module.exports = router;

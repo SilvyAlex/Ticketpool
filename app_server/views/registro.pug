@@ -9,25 +9,47 @@ html
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
     link(rel='icon', href='/favicon.ico', type='image/x-icon')
   body
-    main.form-signin.w-100.m-auto
-      form
-        h2 Ticketpool
-        h1.h3.mb-3.fw-normal Registrate 
-        .form-floating
-          input#floatingInput.form-control(type='name', placeholder='nombre')
-          label(for='floatingInput') Nombre
-        .form-floating
-          input#floatingInput.form-control(type='lastname', placeholder='apellido')
-          label(for='floatingInput') Apellido 
-        .form-floating
-          input#floatingInput.form-control(type='email', placeholder='name@example.com')
-          label(for='floatingInput') Email address
-        .form-floating
-          input#floatingPassword.form-control(type='password', placeholder='Password')
-          label(for='floatingPassword') Password
-        .form-check.text-start.my-3
-          input#flexCheckDefault.form-check-input(type='checkbox', value='remember-me')
-          label.form-check-label(for='flexCheckDefault')
-            | Remember me
-        button.btn.btn-primary.w-100.py-2(href='http://localhost:3000') Sign in
-        p.mt-5.mb-3.text-body-secondary &copy; 2017&ndash;2023
+    header.p-3.text-bg-dark
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+          a.d-flex.align-items-center.mb-2.mb-lg-0.text-white.text-decoration-none(href='/')
+            svg.bi.me-2(width='40', height='32', role='img', aria-label='Bootstrap')
+              use(xlink:href='#bootstrap')
+          ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+            li
+              a.nav-link.px-2.text-white(href='#')
+              h2#pageTitle Ticketpool
+
+
+    form.row.g-3.needs-validation(action, method="post", role="form")
+      .col-md-4
+        label.form-label(for='validationCustom01') Nombre
+        input#validationCustom01.form-control(type='text', name='nombre', required='true')
+        .valid-feedback
+          | Looks good!
+      .col-md-4
+        label.form-label(for='validationCustom02') Correo
+        input#validationCustom02.form-control(type='text', name='correo', required='')
+        .valid-feedback
+          | user@gmail.com!
+      .col-md-6
+        label.form-label(for='validationCustom03') Ciudad
+        input#validationCustom03.form-control(type='text', name='ciudad', required='')
+        .invalid-feedback
+          | Ciudad de su preferencia.
+      .col-md-3
+        label.form-label(for='validationCustom04') Intereses
+        select#validationCustom04.form-select(name='intereses', required='')
+          option(selected='', disabled='', value='') Elija...
+          option Arte
+          option Cine 
+          option Lectura
+        .invalid-feedback
+          | Please select a valid state.
+      .col-md-3
+        label.form-label(for='validationCustom05') Edad
+        input#validationCustom05.form-control(type='text', name='edad', required='')
+        .invalid-feedback
+          | Su edad.
+      .col-12
+        button.btn.btn-danger(type='submit') Registrar
