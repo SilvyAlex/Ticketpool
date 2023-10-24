@@ -4,7 +4,7 @@ const apiOptions = {
   server: 'http://localhost:3000' // server local - desarrollo
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = 'https://ticket-deber-2023-78708ce1d15b.herokuapp.com/' // server heroku - producción
+  apiOptions.server = 'https://ticket-deber-2023-78708ce1d15b.herokuapp.com' // server heroku - producción
 }
 
 ///// Listar usuarios de Usuarios/////
