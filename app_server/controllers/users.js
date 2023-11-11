@@ -1,4 +1,4 @@
-const request = require('request');
+const axios = require('axios');
 // definir los URLs para los ambientes de desarrollo y producción
 const apiOptions = {
   server: 'http://localhost:3000' // server local - desarrollo
@@ -9,30 +9,24 @@ if (process.env.NODE_ENV === 'production') {
 
 ///// Listar usuarios de Usuarios/////
 // listar users - GET
-const users = (req, res, body)=> {
-  const path = '/api/users/';
-  const requestOptions = { // objeto cargado con las opciones para request
-      url: `${apiOptions.server}${path}`,
-      method: 'GET',
-      json: {}
-  };
-  console.log(requestOptions);
-  request(
-      requestOptions, 
-      (err, response, body)=>{
-          if (err) {
-              console.log('Error al listar usuers: ', err);
-          } else if (response.statusCode === 200) {
-              renderUsers(req, res, body);
-              console.log('Objeto resultante: ', body);
-          } else {
-              console.log('Status: ', response.statusCode);
-              res.render('error', {
-                  mensaje: 'Existe un error en la colección de users'
-              })
-          }
+const users = (req, res) => {
+    const path = '/api/users/';
+    const url = `${apiOptions.server}${path}`;
+  
+    axios.get(url)
+      .then(response => {
+        if (response.status === 200) {
+          renderUsers(req, res, response.data);
+          console.log('Objeto resultante: ', response.data);
+        }
+    
+      })
+      .catch(error => {
+        console.log('Error al listar usuarios: ', error.message);
+        console.log('Status: ', error.response.status);
+        res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
       });
-}
+  }
 
 // 0.Render de la vista users
 const renderUsers = (req, res, responseBody)=> {
@@ -50,40 +44,37 @@ const renderUsersCreate = (req, res)=>{
 }
 
 //1. crear documento de usuario
-const doUsersCreate = (req, res)=>{
-  const path = '/api/users/';
-  const postdata = {
-    nombre: req.body.nombre,
-    correo: req.body.correo,
-    edad: req.body.edad,
-    ciudad: req.body.ciudad,
-    intereses: {
+const doUsersCreate = (req, res) => {
+    const path = '/api/users/';
+    const postdata = {
+      nombre: req.body.nombre,
+      correo: req.body.correo,
+      edad: req.body.edad,
+      ciudad: req.body.ciudad,
+      intereses: {
         Cine: req.body.Cine,
         Arte: req.body.Arte,
         Lectura: req.body.Lectura,
-    },
-  };
-  const requestOptions = { // objeto cargado con las opciones para request
-      url: `${apiOptions.server}${path}`,
-      method: 'POST',
-      json: postdata
-  };
-  console.log(requestOptions);
-  request(
-      requestOptions, 
-      (err, response, body)=>{
-          if (response.statusCode === 201) { // creación exitosa
-              res.render('usuario_creacion', {
-                  title: 'Creación de Usuarios',
-                  mensaje: 'Usuario Creado Exitosamente'
-              })
-          } else {
-              console.log('status code: ', response.statusCode);
-              console.log('error: ', err);
-              res.render('error', {mensaje: 'Existe un error en la colección de usuarios'})
-          }
+      },
+    };
+    const url = `${apiOptions.server}${path}`;
+  
+    axios.post(url, postdata)
+      .then(response => {
+        if (response.status === 201) {
+          res.render('usuario_creacion', {
+            title: 'Creación de Usuarios',
+            mensaje: 'Usuario Creado Exitosamente'
+          });
+          console.log('Usuario creado exitosamente', response.data);
+        }
+      })
+      .catch(error => {
+        console.log('status code: ', error.response.status);
+        console.log('error: ', error.message);
+        res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
       });
-}
+  }
 
 
 
@@ -106,54 +97,42 @@ const renderUsersDelete = (req, res, responseBody)=> {
 }
 
 // 1. buscar el documento y mostrarlo en el formulario
-const deleteUsers = (req, res, body)=> {
+const deleteUsers = (req, res) => {
     const path = `/api/users/${req.params.userid}`;
-    const requestOptions = { // objeto cargado con las opciones para request
-        url: `${apiOptions.server}${path}`,
-        method: 'GET',
-        json: {}
-    };
-    console.log(requestOptions);
-    request(
-        requestOptions, 
-        (err, response, body)=>{
-            if (err) {
-                console.log('Error al buscar usuarios: ', err);
-            } else if (response.statusCode === 200) {
-                renderUsersDelete(req, res, body);
-                console.log('Objeto resultante: ', body);
-            } else {
-                console.log('Status: ', response.statusCode);
-                res.render('error', {
-                    mensaje: 'Existe un error en la colección de usuarios'
-                })
-            }
-        });
-}
+    const url = `${apiOptions.server}${path}`;
+  
+    axios.get(url)
+      .then(response => {
+        if (response.status === 200) {
+          renderUsersDelete(req, res, response.data);
+          console.log('Objeto resultante: ', response.data);
+        }
+      })
+      .catch(error => {
+        console.log('Error al buscar usuarios: ', error.message);
+        console.log('Status: ', error.response.status);
+        res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
+      });
+  }
 
 // 2. eliminar el documento
-const doUsersDelete = (req, res)=>{
+const doUsersDelete = (req, res) => {
     const path = `/api/users/${req.params.userid}`;
-    const requestOptions = { // objeto cargado con las opciones para request
-        url: `${apiOptions.server}${path}`,
-        method: 'DELETE',
-        json: {}
-    };
-    console.log('Request Options: ', requestOptions);
-
-    request(
-        requestOptions, 
-        (err, response, body)=>{
-            if (response.statusCode === 204) { // eliminación exitosa
-                console.log('Objeto resultante: ', body);
-                return res.redirect('/');
-            } else {
-                console.log('status code: ', response.statusCode);
-                console.log('error: ', err);
-                res.render('error', {mensaje: 'Existe un error en la colección de usuarios'})
-            }
-        });
-}
+    const url = `${apiOptions.server}${path}`;
+  
+    axios.delete(url)
+      .then(response => {
+        if (response.status === 204) {
+          console.log('Usuario eliminado exitosamente');
+          return res.redirect('/');
+        }
+      })
+      .catch(error => {
+        console.log('status code: ', error.response.status);
+        console.log('error: ', error.message);
+        res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
+      });
+  }
 
 
 module.exports = {
