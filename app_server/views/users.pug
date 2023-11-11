@@ -37,6 +37,7 @@ block content
         .container
           hr(style='background-color: black;')
           h1.text-center #{title}
+          a.btn.btn-outline-danger.me-2(href='/registro') Login
           table.table.table-hover.table-dark.table-responsive.bg-secondary.table-striped
             thead.thead-dark.fixed
               tr
@@ -44,6 +45,7 @@ block content
                 th(scope='col') Nombre
                 th(scope='col') Correo
                 th(scope='col') Edad
+                th(scope='col') Ciudad
                 th(scope='col') intereses
                 // th(scope='col') Id Documento
 
@@ -55,11 +57,12 @@ block content
                   td.nombre=user.nombre
                   td.correo=user.correo
                   td.edad=user.edad
+                  td.ciudad=user.ciudad
                   td.intereses=user.intereses
                   td.documento(style='display:none;')=user._id
                   td 
-                    button.btn.btn-outline-light.space.text-warning(type='button' href='#update' data-toggle='modal')
+                    button.btn.btn-outline-light.space.text-warning(type='button' href='#update' data-toggle='modal') Modifica
                       i.fas.fa-edit 
                     |  
-                    a.btn.btn-outline-light.space.text-danger(type='button' href='/usuario/delete/'+user._id) 
+                    a.btn.btn-outline-light.space.text-danger(type='button' href='/users/delete/'+user._id) Eliminar 
                       i.far.fa-trash-alt

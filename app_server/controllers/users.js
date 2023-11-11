@@ -90,7 +90,7 @@ const doUsersCreate = (req, res)=>{
 ///// Eliminar Usuario/////
 // 0. render vista usuario_elimiar
 const renderUsersDelete = (req, res, responseBody)=> {
-    res.render('usuario_eliminar', { 
+    res.render('users_delete', { 
         title: 'Eliminación de Usuarios', 
         nombre: req.body.nombre,
         correo: req.body.correo,
@@ -101,7 +101,7 @@ const renderUsersDelete = (req, res, responseBody)=> {
             Arte: req.body.Arte,
             Lectura: req.body.Lectura,
         },
-        documento: responseBody._id
+        //documento: responseBody._id
     });
 }
 

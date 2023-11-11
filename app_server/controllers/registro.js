@@ -1,5 +1,5 @@
 // controllers
-const request = require('request');
+const axios = require('axios');
 // definir los URLs para los ambientes de desarrollo y producción
 const apiOptions = {
   server: 'http://localhost:3000' // server local - desarrollo
@@ -15,10 +15,9 @@ const render_registro_form = (req, res, next) => {
 }
 
 
-const crear_usuario = (req, res) => {    
+const crear_usuario = (req, res) => {
   console.log(req.body)
   const path = '/api/users/';
-  //Los nombres de estos campos deben coincidir exactamente con el atributo 'name' de su respectivo Input Field en el View (en este caso)  registro.pug
   const postdata = {
     nombre: req.body.nombre,
     correo: req.body.correo,
@@ -26,29 +25,21 @@ const crear_usuario = (req, res) => {
     ciudad: req.body.ciudad,
     intereses: [req.body.intereses],
   };
-  const requestOptions = { // objeto cargado con las opciones para request
-    url: `${apiOptions.server}${path}`,
-    method: 'POST',
-    json: postdata
-  };
-  console.log(requestOptions);
+  const url = `${apiOptions.server}${path}`;
 
-  request(
-    requestOptions,
-    (err, response, body) => {
-      if (response.statusCode === 201) { // creación exitosa
+  axios.post(url, postdata)
+    .then(response => {
+      if (response.status === 201) {
         res.render('index', { title: 'Mi Primera página Heroku' });
-        console.log('Usuario creado exitosamente', body);
-      } else {
-        console.log('status code: ', response.statusCode);
-        console.log('error: ', err);
-        res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
+        console.log('Usuario creado exitosamente', response.data);
       }
+    })
+    .catch(error => {
+      console.log('status code: ', error.response.status);
+      console.log('error: ', error.message);
+      res.render('error', { mensaje: 'Existe un error en la colección de usuarios' })
     });
-
-
 }
-
 
 module.exports = {
   render_registro_form,
