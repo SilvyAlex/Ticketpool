@@ -21,19 +21,37 @@ html
           form.col-12.col-lg-auto.mb-3.mb-lg-0.me-lg-3(role='search')
             input.form-control.form-control-dark.text-bg-dark(type='search', placeholder='Search...', aria-label='Search')
           .text-end
-            button.btn.btn-outline-light.me-2(type='button') Login
-            button.btn.btn-outline-danger(type='button') Sing in
+            button.btn.btn-outline-light.me-2(href='/registro') Login
+            button.btn.btn-outline-danger(href='/registro') Sing in
     //imagen de la funcion
     img.img-fluid(src='https://cdn.buenplan.com.ec/pictures/6e7e2b9b-8fdd-4c94-9cf0-7847f9ad8dce.png', alt='DaranViendo')
     //descripcion
     .row.g-5
       .col-md-8
-        h3.pb-4.mb-4.fst-italic.border-bottom
-        article.blog-post
-          h2.display-5.link-body-emphasis.mb-1 Daran Huevando
-          p.blog-post-meta
-            | 30 de septiembre 2023, 20:00 (EC) 
-          hr
+        .card.bg-light.p-4.rounded.shadow-lg
+          .col-lg-8.pt-4.pt-lg-0.content(data-aos='fade-left')
+          h3 Daran Viendo
+          p.fst-italic
+            |Darán Hueveando es la unión de darán viendo y Hueveando 
+          .row
+            .col-lg-6
+              ul
+                li
+                  i.bi.bi-chevron-right
+                  |  
+                  strong Fecha:
+                  |  
+                  span 30 de septiembre 2023, 20:00 (EC)
+                li
+                  i.bi.bi-chevron-right
+                  |  
+                  strong Lugar:
+                  |  
+                  span Auditorio Cámara de Comercio. Las Cámaras, Av. Río Amazonas, Quito 170135
+                
+          p
+            | El Chismecito es un show de Majo Reina @soymajoreina y Mateo Balseca @mateo.balseca quienes han creado un monólogo lleno de risas y sorpresas para su audiencia, además de eso invitados especiales y podcast en vivo.
+          
           h3 Tus entradas 
           table.table
             thead
@@ -51,86 +69,88 @@ html
                 td 
                 th Subtotal
                 td $40
-      .col-md-7.col-lg-8
-      h4.mb-3 Datos de Compra
-      form.needs-validation(novalidate='')
-        .row.g-3
-          .col-sm-6
-            label.form-label(for='firstName') Nombre
-            input#firstName.form-control(type='text', placeholder='', value='', required='')
-            .invalid-feedback
-              | Nombre requerido.
-          .col-sm-6
-            label.form-label(for='lastName') Apellido
-            input#lastName.form-control(type='text', placeholder='', value='', required='')
-            .invalid-feedback
-              | Apellido requerido.
-          .col-12
-            label.form-label(for='email')
-              | Email 
-              span.text-body-secondary (obligatorio)
-            input#email.form-control(type='email', placeholder='nombre@gmail.com')
-            .invalid-feedback
-              | Email requerido.
-          .col-md-5
-            label.form-label(for='country') País
-            select#country.form-select(required='')
-              option(value='') Elegir..
-              option Ecuador 
-            .invalid-feedback
-              | Please select a valid country.
-          .col-md-4
-            label.form-label(for='state') Ciudad
-            select#state.form-select(required='')
-              option(value='') Elegir..
-              option Ambato
-              option Guayaquil
-              option Quito
-              option Cuenca
-              option Latacunga
-              option Baños
-            .invalid-feedback
-              | Please provide a valid state.
-        
-        hr.my-4
-        h4.mb-3 Opciones de Pago 
-        .my-3
-          .form-check
-            input#credit.form-check-input(name='paymentMethod', type='radio', checked='', required='')
-            label.form-check-label(for='credit') Tarjeta de Crédito
-          .form-check
-            input#debit.form-check-input(name='paymentMethod', type='radio', required='')
-            label.form-check-label(for='debit') Tarjeta de Débito
-          .form-check
-            input#paypal.form-check-input(name='paymentMethod', type='radio', required='')
-            label.form-check-label(for='paypal') PayPal
-          .form-check
-            input#paypal.form-check-input(name='paymentMethod', type='radio', required='')
-            label.form-check-label(for='paypal') ApplePay
-        .row.gy-3
-          .col-md-6
-            label.form-label(for='cc-name') Nombre de la tarjeta
-            input#cc-name.form-control(type='text', placeholder='', required='')
-            small.text-body-secondary Nombre completo que está en la tarjeta
-            .invalid-feedback
-              | Nombre de la tarjeta requerido 
-          .col-md-6
-            label.form-label(for='cc-number') Número de la tarjeta
-            input#cc-number.form-control(type='text', placeholder='', required='')
-            .invalid-feedback
-              | Número de la tarjeta requerido
-          .col-md-3
-            label.form-label(for='cc-expiration') Fecha de vencimiento
-            input#cc-expiration.form-control(type='text', placeholder='', required='')
-            .invalid-feedback
-              | Fecha de vencimiento requerido 
-          .col-md-3
-            label.form-label(for='cc-cvv') CVV
-            input#cc-cvv.form-control(type='text', placeholder='', required='')
-            .invalid-feedback
-              | Código de seguridad requerido 
-        hr.my-4
-        button.w-100.btn.btn-danger.btn-lg(type='submit') Pagar    
+          
+      .row.g-5
+        .col-md-7.col-lg-8
+        h4.mb-3 Datos de Compra
+        form.bg-light.p-4.rounded.shadow-lg.needs-validation(novalidate='')
+          .row.g-3
+            .col-sm-6
+              label.form-label(for='firstName') Nombre
+              input#firstName.form-control.form-control-lg(type='text', placeholder='', value='', required='')
+              .invalid-feedback
+                | Nombre requerido.
+            .col-sm-6
+              label.form-label(for='lastName') Apellido
+              input#lastName.form-control.form-control-lg(type='text', placeholder='', value='', required='')
+              .invalid-feedback
+                | Apellido requerido.
+            .col-12
+              label.form-label(for='email')
+                | Email 
+                span.text-muted (obligatorio)
+              input#email.form-control.form-control-lg(type='email', placeholder='nombre@gmail.com')
+              .invalid-feedback
+                | Email requerido.
+            .col-md-5
+              label.form-label(for='country') País
+              select#country.form-select.form-select-lg(required='')
+                option(value='') Elegir..
+                option Ecuador 
+              .invalid-feedback
+                | Please select a valid country.
+            .col-md-4
+              label.form-label(for='state') Ciudad
+              select#state.form-select.form-select-lg(required='')
+                option(value='') Elegir..
+                option Ambato
+                option Guayaquil
+                option Quito
+                option Cuenca
+                option Latacunga
+                option Baños
+              .invalid-feedback
+                | Please provide a valid state.
+          
+          hr.my-4
+          h4.mb-3 Opciones de Pago 
+          .my-3
+            .form-check
+              input#credit.form-check-input(name='paymentMethod', type='radio', checked='', required='')
+              label.form-check-label(for='credit') Tarjeta de Crédito
+            .form-check
+              input#debit.form-check-input(name='paymentMethod', type='radio', required='')
+              label.form-check-label(for='debit') Tarjeta de Débito
+            .form-check
+              input#paypal.form-check-input(name='paymentMethod', type='radio', required='')
+              label.form-check-label(for='paypal') PayPal
+            .form-check
+              input#applepay.form-check-input(name='paymentMethod', type='radio', required='')
+              label.form-check-label(for='applepay') ApplePay
+          .row.gy-3
+            .col-md-6
+              label.form-label(for='cc-name') Nombre de la tarjeta
+              input#cc-name.form-control.form-control-lg(type='text', placeholder='', required='')
+              small.text-muted Nombre completo que está en la tarjeta
+              .invalid-feedback
+                | Nombre de la tarjeta requerido 
+            .col-md-6
+              label.form-label(for='cc-number') Número de la tarjeta
+              input#cc-number.form-control.form-control-lg(type='text', placeholder='', required='')
+              .invalid-feedback
+                | Número de la tarjeta requerido
+            .col-md-3
+              label.form-label(for='cc-expiration') Fecha de vencimiento
+              input#cc-expiration.form-control.form-control-lg(type='text', placeholder='', required='')
+              .invalid-feedback
+                | Fecha de vencimiento requerido 
+            .col-md-3
+              label.form-label(for='cc-cvv') CVV
+              input#cc-cvv.form-control.form-control-lg(type='text', placeholder='', required='')
+              .invalid-feedback
+                | Código de seguridad requerido 
+          hr.my-4
+          button.w-100.btn.btn-danger.btn-lg(href='/index') Pagar
 
           
           
