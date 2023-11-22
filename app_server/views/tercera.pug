@@ -3,10 +3,13 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='app_server/CSS/asientos.css')
     // bootstrap css
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", rel="stylesheet")
     // bootstrap js and popper
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
+
+    
   body
     header.p-3.text-bg-dark
       .container
@@ -48,7 +51,86 @@ html
                   strong Lugar:
                   |  
                   span Auditorio Cámara de Comercio. Las Cámaras, Av. Río Amazonas, Quito 170135
-                
+          .movie-container
+            label Pick a movie: 
+            select#movie
+              option(value='250') Interstellar (Rs. 250)
+              option(value='200') Kabir Singh (Rs. 200)
+              option(value='150') Duniyadari (Rs. 150)
+              option(value='100') Natsamrat (Rs. 100)
+            ul.showcase
+              li
+                .seat
+                small N/A
+              li
+                .seat.selected
+                small Selected
+              li
+                .seat.occupied
+                small Occupied
+            .container
+              .screen
+              .row
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+              .row
+                .seat
+                .seat
+                .seat
+                .seat.occupied
+                .seat.occupied
+                .seat
+                .seat
+                .seat
+              .row
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat.occupied
+                .seat.occupied
+              .row
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat
+              .row
+                .seat
+                .seat
+                .seat
+                .seat.occupied
+                .seat.occupied
+                .seat
+                .seat
+                .seat
+              .row
+                .seat
+                .seat
+                .seat
+                .seat
+                .seat.occupied
+                .seat.occupied
+                .seat.occupied
+                .seat
+              p.text
+                | You have selected 
+                span#count 0
+                |  seats for the total price of Rs. 
+                span#total 0
+          .credits
+            a(href='http://www.aniket.co', target='_blank') aniket.co      
           p
             | El Chismecito es un show de Majo Reina @soymajoreina y Mateo Balseca @mateo.balseca quienes han creado un monólogo lleno de risas y sorpresas para su audiencia, además de eso invitados especiales y podcast en vivo.
           img.img-fluid(src='https://blog.misterplan.es/wp-content/uploads/grada_asientos.jpg', alt='DaranViendo')

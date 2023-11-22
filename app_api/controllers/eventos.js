@@ -6,10 +6,15 @@ const eventos = mongoose.model('evento'); // el modelo me permite interactuar co
 const eventoCreate = (req, res) => {
     eventos
         .create({
+            imagen: req.body.imagen,
             nombre: req.body.nombre,
+            introduccion: req.body.introduccion,
             fecha: req. body.fecha,
             ubicacion: req. body.ubicacion,
+            genero: req.body.genero,
+            redes: req.body.redes,
             descripcion: req. body.descripcion,
+            fotos: req.body.fotos,
         })
         .then((objetoEvento)=> {
             res

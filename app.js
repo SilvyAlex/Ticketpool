@@ -12,6 +12,8 @@ const terceraRouter = require('./app_server/routes/tercera');
 const cuartaRouter = require('./app_server/routes/cuarta');
 const registroRouter = require('./app_server/routes/registro');
 const usersRouter = require('./app_server/routes/users');
+const eventosRouter = require('./app_server/routes/eventos');
+const comentariosRouter = require('./app_server/routes/comentarios');
 
 //Api Routes
 const apiRouter = require('./app_api/routes/index');  // rutas REST API
@@ -38,7 +40,8 @@ app.use('/tercera', terceraRouter);
 app.use('/cuarta', cuartaRouter); 
 app.use('/registro', registroRouter);
 app.use('/users', usersRouter);
-
+app.use('/eventos', eventosRouter);
+app.use('/comentarios', comentariosRouter);
 
 //Api routess
 app.use('/api', apiRouter);

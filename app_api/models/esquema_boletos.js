@@ -1,23 +1,40 @@
 const mongoose = require('mongoose');
 
 const boletosSchema = new mongoose.Schema({
-    evento: {
+    imagen: {
+        type: Buffer,
+        require: true
+    },
+    nombre: {
+        type: String,
+        require: true
+    },
+    introduccion: {
         type: String,
         require: true
     },
     fecha: {
-        type: Date,
-        'default': Date.now
-    },
-    hora: {
-        type: Number,
+        type: String,
         require: true
     },
-    lugar: {
+    ubicacion: {
         type: String,
     },
-    asientos: {
-        type: Number
+    genero: {
+        type: String,
+        require: true
+    },
+    redes: {
+        type: String,
+        require: true
+    },
+    descripcion: {
+        type: String,
+        require: true
+    },
+    fotos: {
+        type: Buffer,
+        require: true
     }
 });
 

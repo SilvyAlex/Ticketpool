@@ -23,33 +23,16 @@ html
 
     form.row.g-3.needs-validation.bg-light.p-4.rounded.shadow-lg(action, method="post", role="form")
       .col-md-4
-        label.form-label(for='validationCustom01') Nombre
-        input#validationCustom01.form-control.form-control-lg(placeholder='nombre y apellido', type='text', name='nombre', required='true')
-        .valid-feedback
-          | Looks good!
-      .col-md-4
-        label.form-label(for='validationCustom02') Correo
+        label.form-label(for='validationCustom01') Correo
         input#validationCustom02.form-control.form-control-lg(placeholder='nombre@gmail.com', type='text', name='correo', required='')
         .valid-feedback
           | user@gmail.com!
-      .col-md-6
-        label.form-label(for='validationCustom03') Ciudad
-        input#validationCustom03.form-control.form-control-lg(type='text', name='ciudad', required='')
-        .invalid-feedback
-          | Ciudad de su preferencia.
-      .col-md-3
-        label.form-label(for='validationCustom04') Intereses
-        select#validationCustom04.form-select.form-select-lg(name='intereses', required='')
-          option(selected='', disabled='', value='') Elija...
-          option Arte
-          option Cine 
-          option Lectura
-        .invalid-feedback
-          | Please select a valid state.
-      .col-md-3
-        label.form-label(for='validationCustom05') Edad
-        input#validationCustom05.form-control.form-control-lg(type='text', name='edad', required='')
-        .invalid-feedback
-          | Su edad.
+      .col-md-4
+        label.form-label(for='validationCustom02') Comentario
+        textarea#floatingTextarea2.form-control(placeholder='Deja tu comentario', style='height: 100px')
+      
       .col-12
-        button.btn.btn-danger.btn-lg(type='submit') Registrar
+       a.btn.btn-danger.btn-lg(href='/') Registrar
+
+      .d-grid.gap-2.d-md-flex.justify
+        a.btn.btn-danger.me-md-2(href='/') Volver
