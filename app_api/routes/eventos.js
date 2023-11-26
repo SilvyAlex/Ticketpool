@@ -9,7 +9,7 @@ router
     .get(ctrlEventos.eventoList);
 
 router
-    .route('/users/:userid')
+    .route('/eventos/:eventoid')
     .get(ctrlEventos.eventoRead)
     .put(ctrlEventos.eventoUpdate)
     .delete(ctrlEventos.eventoDelete);
