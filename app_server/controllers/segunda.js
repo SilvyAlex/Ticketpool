@@ -1,16 +1,42 @@
 // controllers
 const axios = require('axios');
-// homepage - GET
-const segunda = (req, res, next)=> {
-  console.log(req.query.id)
-  console.log(req.query)
-  //Podemos ver el id del evento seleccionado(esta en req.query)
-  //Lamar a la api dandole el id para que devuelva la informacion asociada con el evento
-  //Renderizar la pagina del evento
-  //Mandar en el render la variable y adentro del pug leer la variable
-    res.render('segunda', { title: 'Mi Segunda página Express' });
-  }
+const apiOptions = {
+  server: 'http://localhost:3000' // server local - desarrollo
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = 'https://ticket-deber-2023-78708ce1d15b.herokuapp.com' // server heroku - producción
+}
 
+// Page - GET
+const segunda = (req, res, next) => {
+  const eventId = req.query.id;
+  console.log(eventId);
+
+  // Llamar a la API dándole el ID para que devuelva la información asociada con el evento
+  const path = `/api/eventos/${eventId}`;
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: `${apiOptions.server}${path}`,
+    headers: {}
+  };
+
+  axios.request(config)
+    .then((response) => {
+      const evento = response.data;
+      console.log(JSON.stringify(evento));
+
+      // Renderizar la página del evento y pasar la información del evento al render
+      res.render('segunda', { title: 'Mi Segunda página Express', evento: evento });
+    })
+    .catch((error) => {
+      console.log(error);
+
+      // Manejar el error si es necesario
+      // También puedes enviar un mensaje de error al renderizar la página si lo prefieres
+      res.render('segunda', { title: 'Mi Segunda página Express', evento: null, error: 'No se pudo obtener la información del evento.' });
+    });
+};
 module.exports = {
   segunda, // index - GET
   
