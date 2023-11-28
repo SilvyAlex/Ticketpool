@@ -21,10 +21,10 @@ const index = (req, res, next) => {
   axios.request(config)
     .then((response) => {
       // Procesar los eventos obtenidos
-      const eventos = response.data;
+      const eventos_recibidos = response.data;
 
       // Enviar estos eventos a eventos.pug mediante la función render
-      res.render('index', { title: 'Mi Primera página Heroku', eventos: eventos });
+      res.render('index', { title: 'Mi Primera página Heroku', eventos: eventos_recibidos });
     })
     .catch((error) => {
       console.log(error);

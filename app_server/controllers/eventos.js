@@ -34,14 +34,21 @@ const crear_evento = (req, res) => {
   axios.post(url, postdata)
     .then(response => {
       if (response.status === 201) {
-        res.render('index', { title: 'Mi Primera página Heroku' });
+        res.redirect(`/segunda?id=${response.data._id}`); //esta extrapolacion es equivalente a concatenar "/segunda?id=" + evento._id
+        //res.redirect("/"); //una solucion viable que te lleva a Home
+        //res.render('index', { title: 'Mi Primera página Heroku', eventos: [] }); //una opcion es hace un Redirect de /segunda con el ID del evento nuevo creado
         console.log('Evento creado exitosamente', response.data);
       }
     })
     .catch(error => {
-      console.log('status code: ', error.response.status);
-      console.log('error: ', error.message);
-      res.render('error', { mensaje: 'Existe un error en la colección de eventos' })
+      console.log('error: ', error);  //mejor que sea lo mas raw posible para entender cual es el error
+      if(error && error.status)
+      {
+        res.render('error', { mensaje: 'Existe un error en la colección de eventos' })
+      } else
+      {
+        res.redirect("/"); // asi evitamos que se cuelgue la app
+      }
     });
 }
 
