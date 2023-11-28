@@ -26,46 +26,45 @@ html
             button.btn.btn-outline-danger(href='/registro') Sign in
 
       img.img-fluid(src=evento.imagen, alt=evento.nombre)
-        .row.g-5
-          .col-md-8
-            .card.bg-light.p-4.rounded.shadow-lg
-              .col-lg-8.pt-4.pt-lg-0.content(data-aos='fade-left')
-                h3= evento.nombre
-                p.fst-italic= evento.introduccion
-                .row
-                  .col-lg-6
-                    ul
-                      li
-                        i.bi.bi-chevron-right
-                        |  
-                        strong Fecha:
-                        |  
-                        span= evento.fecha
-                      li
-                        i.bi.bi-chevron-right
-                        |  
-                        strong Ubicación:
-                        |  
-                        span= evento.ubicacion
-                      li
-                        i.bi.bi-chevron-right
-                        |  
-                        strong Género:
-                        |  
-                        span= evento.genero
-                      li
-                        i.bi.bi-chevron-right
-                        |  
-                        strong Redes:
-                        |  
-                        span= evento.redes
-                  
-                p= evento.descripcion
-                h3 Fotos 
-                .row.g-3
-                  each foto in evento.fotos
-                    .col
-                      img.img-fluid.rounded(src=foto, alt=evento.nombre)
+      
+      .row.g-5
+        .col-md-8
+          .card.bg-light.p-4.rounded.shadow-lg
+            .col-lg-8.pt-4.pt-lg-0.content(data-aos='fade-left')
+              h3= evento.nombre
+              p.fst-italic= evento.introduccion
+              .row
+                .col-lg-6
+                  ul
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Fecha:
+                      |  
+                      span= evento.fecha
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Ubicación:
+                      |  
+                      span= evento.ubicacion
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Género:
+                      |  
+                      span= evento.genero
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Redes:
+                      |  
+                      span= evento.redes
+              p= evento.descripcion
+              h3 Fotos 
+              .row.g-3
+                  .col
+                    img.img-fluid.rounded(src=evento.fotos, alt=evento.nombre)
               
       //compra de entradas
         
