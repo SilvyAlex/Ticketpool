@@ -1,21 +1,43 @@
 const mongoose = require('mongoose');
 
 const pagosSchema = new mongoose.Schema({
-    usuario: {
+    nombre: {
         type: String,
-        require: true
+        required: true
     },
-    evento: {
+    apellido: {
         type: String,
-        require: true
+        required: true
     },
-    precio: {
-        type: Number,
+    email: {
+        type: String, 
+        required: true
+    },
+    pais: {
+        type: [String], 
+        required: true
+    },
+    ciudad: {
+        type: [String], 
+        required: true
     },
     metodo: {
-        type: Array
+        type: [String], 
+        required: true
     },
-    estado: {
+    tarjeta: {
+        type: String, 
+        required: true
+    },
+    numero: {
+        type: String, 
+        required: true
+    },
+    vence: {
+        type: String, 
+        required: true
+    },
+    cvv: {
         type: String
     }
 });
@@ -23,11 +45,16 @@ const pagosSchema = new mongoose.Schema({
 const Pago = new mongoose.model('pago', pagosSchema);
 
 const pago = new Pago({
-    usuario: 'Juan',
-    evento: 'Perez',
-    precio: 'Quito',
-    metodo: 'Quito',
-    estado: 'Quito',
+    nombre: 'Juan',
+    apellido: 'Perez',
+    email: 'jp@gmail.com',
+    pais: 'Ecuador',
+    ciudad: 'Quito',
+    metodo: 'Debito',
+    targeta: 'Juan Perez',
+    numero: '123456789123',
+    vence: '12/26',
+    cvv: '123',
 });
 
 // user.save();

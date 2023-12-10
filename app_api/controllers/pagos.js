@@ -6,11 +6,16 @@ const pagos = mongoose.model('pago'); // el modelo me permite interactuar con la
 const pagoCreate = (req, res) => {
     pagos
         .create({
-            usuario: req.body.usuario,
-            evento: req. body.evento,
-            precio: req. body.precio,
-            metodo: req. body.metodo,
-            estado: req. body.estado,
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.email,
+            pais: req.body.pais,
+            ciudad: req.body.ciudad,
+            metodo: req.body.metodo,
+            tarjeta: req.body.tarjeta,
+            numero: req.body.numero,
+            vence: req.body.vence,
+            cvv: req.body.cvv,
         })
         .then((objetoPago)=> {
             res

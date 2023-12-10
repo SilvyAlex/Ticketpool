@@ -66,22 +66,23 @@ html
                 .col
                   img.img-fluid.rounded(src=evento.fotos, alt=evento.nombre)
 
-        //compra de entradas
+        
         .col-md-4
-          .position-sticky(style='top: 2rem;')
-            .p-4.mb-3.bg-gray.rounded.shadow-lg
-              h4.fw-bold Compra de boletos
-              p
-                | Boletos generales        $20
-              p(style='text-align: center;')
-                a.btn.btn-danger.btn-block(href='/tercera') Comprar
-            div
-              h4.fw-bold(style='text-align: center;') Organizadores
-              ul.list-unstyled.text-center
-                li
-                  img.img-fluid.rounded(src='https://cdn.buenplan.com.ec/pictures/6a19ef22-8754-4095-8a8c-8f1307316ffc.jpeg', width='130', height='130', alt='DaranViendo3')
-                li
-                  img.img-fluid.rounded(src='https://cdn.worldvectorlogo.com/logos/claro.svg', width='130', height='130', alt='DaranViendo3')
+            .position-sticky(style='top: 2rem;')
+              .p-4.mb-3.bg-gray.rounded.shadow-lg
+                h4.fw-bold Compra de boletos
+                p
+                  | Boletos generales        $20
+                p(style='text-align: center;')
+                  a.btn.btn-sm.btn-outline-secondary(href=`/tercera?id=${evento._id}`) Ver 
+              div
+                h4.fw-bold(style='text-align: center;') Organizadores
+                ul.list-unstyled.text-center
+                  li
+                    img.img-fluid.rounded(src='https://cdn.buenplan.com.ec/pictures/6a19ef22-8754-4095-8a8c-8f1307316ffc.jpeg', width='130', height='130', alt='DaranViendo3')
+                  li
+                    img.img-fluid.rounded(src='https://cdn.worldvectorlogo.com/logos/claro.svg', width='130', height='130', alt='DaranViendo3')
+    
     //Fotter
     .container
       footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
@@ -101,4 +102,3 @@ html
             a.text-body-warning(href='#')
               svg.bi(width='24', height='24')
                 use(xlink:href='#facebook')
-    

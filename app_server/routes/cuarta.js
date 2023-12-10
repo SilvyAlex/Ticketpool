@@ -5,8 +5,11 @@ const router = express.Router();
 const ctrlCuarta = require('../controllers/cuarta');
 
 
-/* GET home page. */
-router.get('/', ctrlCuarta.cuarta);
-
+/* GET home page.
+router.get('/', ctrlCuarta.cuarta);*/
+router
+    .route('/')    // opcion para ser aun mas especificos
+    .get(ctrlCuarta.cuarta)      // mostrar formulario
+    .post(ctrlCuarta.crear_pago);         // crear usuario
 
 module.exports = router;

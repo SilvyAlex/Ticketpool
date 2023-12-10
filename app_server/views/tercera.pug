@@ -3,12 +3,10 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(href='app_server/CSS/asientos.css')
     // bootstrap css
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", rel="stylesheet")
     // bootstrap js and popper
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
-
     
   body
     header.p-3.text-bg-dark
@@ -25,272 +23,77 @@ html
             input.form-control.form-control-dark.text-bg-dark(type='search', placeholder='Search...', aria-label='Search')
           .text-end
             button.btn.btn-outline-light.me-2(href='/registro') Login
-            button.btn.btn-outline-danger(href='/registro') Sing in
-    //imagen de la funcion
-    img.img-fluid(src='https://cdn.buenplan.com.ec/pictures/6e7e2b9b-8fdd-4c94-9cf0-7847f9ad8dce.png', alt='DaranViendo')
-    //descripcion
-    .row.g-5
-      .col-md-8
-        .card.bg-light.p-4.rounded.shadow-lg
-          .col-lg-8.pt-4.pt-lg-0.content(data-aos='fade-left')
-          h3 Daran Viendo
-          p.fst-italic
-            |Darán Hueveando es la unión de darán viendo y Hueveando 
-          .row
-            .col-lg-6
-              ul
-                li
-                  i.bi.bi-chevron-right
-                  |  
-                  strong Fecha:
-                  |  
-                  span 30 de septiembre 2023, 20:00 (EC)
-                li
-                  i.bi.bi-chevron-right
-                  |  
-                  strong Lugar:
-                  |  
-                  span Auditorio Cámara de Comercio. Las Cámaras, Av. Río Amazonas, Quito 170135
-          .plane
-            .cockpit
-              h1 Please select a seat
-            .exit.exit--front.fuselage
-            ol.cabin.fuselage
-              li.row.row--1
-                ol.seats(type='A')
-                  li.seat
-                    input#1A(type='checkbox')
-                    label(for='1A') 1A
-                  li.seat
-                    input#1B(type='checkbox')
-                    label(for='1B') 1B
-                  li.seat
-                    input#1C(type='checkbox')
-                    label(for='1C') 1C
-                  li.seat
-                    input#1D(type='checkbox', disabled='')
-                    label(for='1D') Occupied
-                  li.seat
-                    input#1E(type='checkbox')
-                    label(for='1E') 1E
-                  li.seat
-                    input#1F(type='checkbox')
-                    label(for='1F') 1F
-              li.row.row--2
-                ol.seats(type='A')
-                  li.seat
-                    input#2A(type='checkbox')
-                    label(for='2A') 2A
-                  li.seat
-                    input#2B(type='checkbox')
-                    label(for='2B') 2B
-                  li.seat
-                    input#2C(type='checkbox')
-                    label(for='2C') 2C
-                  li.seat
-                    input#2D(type='checkbox')
-                    label(for='2D') 2D
-                  li.seat
-                    input#2E(type='checkbox')
-                    label(for='2E') 2E
-                  li.seat
-                    input#2F(type='checkbox')
-                    label(for='2F') 2F
-              li.row.row--3
-                ol.seats(type='A')
-                  li.seat
-                    input#3A(type='checkbox')
-                    label(for='3A') 3A
-                  li.seat
-                    input#3B(type='checkbox')
-                    label(for='3B') 3B
-                  li.seat
-                    input#3C(type='checkbox')
-                    label(for='3C') 3C
-                  li.seat
-                    input#3D(type='checkbox')
-                    label(for='3D') 3D
-                  li.seat
-                    input#3E(type='checkbox')
-                    label(for='3E') 3E
-                  li.seat
-                    input#3F(type='checkbox')
-                    label(for='3F') 3F
-              li.row.row--4
-                ol.seats(type='A')
-                  li.seat
-                    input#4A(type='checkbox')
-                    label(for='4A') 4A
-                  li.seat
-                    input#4B(type='checkbox')
-                    label(for='4B') 4B
-                  li.seat
-                    input#4C(type='checkbox')
-                    label(for='4C') 4C
-                  li.seat
-                    input#4D(type='checkbox')
-                    label(for='4D') 4D
-                  li.seat
-                    input#4E(type='checkbox')
-                    label(for='4E') 4E
-                  li.seat
-                    input#4F(type='checkbox')
-                    label(for='4F') 4F
-              li.row.row--5
-                ol.seats(type='A')
-                  li.seat
-                    input#5A(type='checkbox')
-                    label(for='5A') 5A
-                  li.seat
-                    input#5B(type='checkbox')
-                    label(for='5B') 5B
-                  li.seat
-                    input#5C(type='checkbox')
-                    label(for='5C') 5C
-                  li.seat
-                    input#5D(type='checkbox')
-                    label(for='5D') 5D
-                  li.seat
-                    input#5E(type='checkbox')
-                    label(for='5E') 5E
-                  li.seat
-                    input#5F(type='checkbox')
-                    label(for='5F') 5F
-              li.row.row--6
-                ol.seats(type='A')
-                  li.seat
-                    input#6A(type='checkbox')
-                    label(for='6A') 6A
-                  li.seat
-                    input#6B(type='checkbox')
-                    label(for='6B') 6B
-                  li.seat
-                    input#6C(type='checkbox')
-                    label(for='6C') 6C
-                  li.seat
-                    input#6D(type='checkbox')
-                    label(for='6D') 6D
-                  li.seat
-                    input#6E(type='checkbox')
-                    label(for='6E') 6E
-                  li.seat
-                    input#6F(type='checkbox')
-                    label(for='6F') 6F
-              li.row.row--7
-                ol.seats(type='A')
-                  li.seat
-                    input#7A(type='checkbox')
-                    label(for='7A') 7A
-                  li.seat
-                    input#7B(type='checkbox')
-                    label(for='7B') 7B
-                  li.seat
-                    input#7C(type='checkbox')
-                    label(for='7C') 7C
-                  li.seat
-                    input#7D(type='checkbox')
-                    label(for='7D') 7D
-                  li.seat
-                    input#7E(type='checkbox')
-                    label(for='7E') 7E
-                  li.seat
-                    input#7F(type='checkbox')
-                    label(for='7F') 7F
-              li.row.row--8
-                ol.seats(type='A')
-                  li.seat
-                    input#8A(type='checkbox')
-                    label(for='8A') 8A
-                  li.seat
-                    input#8B(type='checkbox')
-                    label(for='8B') 8B
-                  li.seat
-                    input#8C(type='checkbox')
-                    label(for='8C') 8C
-                  li.seat
-                    input#8D(type='checkbox')
-                    label(for='8D') 8D
-                  li.seat
-                    input#8E(type='checkbox')
-                    label(for='8E') 8E
-                  li.seat
-                    input#8F(type='checkbox')
-                    label(for='8F') 8F
-              li.row.row--9
-                ol.seats(type='A')
-                  li.seat
-                    input#9A(type='checkbox')
-                    label(for='9A') 9A
-                  li.seat
-                    input#9B(type='checkbox')
-                    label(for='9B') 9B
-                  li.seat
-                    input#9C(type='checkbox')
-                    label(for='9C') 9C
-                  li.seat
-                    input#9D(type='checkbox')
-                    label(for='9D') 9D
-                  li.seat
-                    input#9E(type='checkbox')
-                    label(for='9E') 9E
-                  li.seat
-                    input#9F(type='checkbox')
-                    label(for='9F') 9F
-              li.row.row--10
-                ol.seats(type='A')
-                  li.seat
-                    input#10A(type='checkbox')
-                    label(for='10A') 10A
-                  li.seat
-                    input#10B(type='checkbox')
-                    label(for='10B') 10B
-                  li.seat
-                    input#10C(type='checkbox')
-                    label(for='10C') 10C
-                  li.seat
-                    input#10D(type='checkbox')
-                    label(for='10D') 10D
-                  li.seat
-                    input#10E(type='checkbox')
-                    label(for='10E') 10E
-                  li.seat
-                    input#10F(type='checkbox')
-                    label(for='10F') 10F
-            .exit.exit--back.fuselage
-          p
-            | El Chismecito es un show de Majo Reina @soymajoreina y Mateo Balseca @mateo.balseca quienes han creado un monólogo lleno de risas y sorpresas para su audiencia, además de eso invitados especiales y podcast en vivo.
-          img.img-fluid(src='https://blog.misterplan.es/wp-content/uploads/grada_asientos.jpg', alt='DaranViendo')
-          h3 Compra de entradas 
-          table.table
-            thead
-              tr
-                th Localidad
-                th Precio
-                th Cantidad
-            tbody
-              tr 
-                td General 
-                td $20
-                td 2
-            tfoot
-              tr
-                td 
-                th Subtotal
-                td $40
-          p
-            a.btn.btn-outline-danger(href='/cuarta') Comprar
+            button.btn.btn-outline-danger(href='/registro') Sign in
+
+      img.img-fluid(src=evento.imagen, alt=evento.nombre)
+
+      .row.g-5
+        .col-md-8
+          .card.bg-light.p-4.rounded.shadow-lg
+            .col-lg-8.pt-4.pt-lg-0.content(data-aos='fade-left')
+              h3= evento.nombre
+              p.fst-italic= evento.introduccion
+              .row
+                .col-lg-6
+                  ul
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Fecha:
+                      |  
+                      span= evento.fecha
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Ubicación:
+                      |  
+                      span= evento.ubicacion
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Género:
+                      |  
+                      span= evento.genero
+                    li
+                      i.bi.bi-chevron-right
+                      |  
+                      strong Redes:
+                      |  
+                      span= evento.redes
+              p= evento.descripcion
+          
+            img.img-fluid(src='https://blog.misterplan.es/wp-content/uploads/grada_asientos.jpg', alt='DaranViendo')
+            
+            h3 Compra de entradas 
+            table.table
+              thead
+                tr
+                  th Localidad
+                  th Precio
+                  th Cantidad
+              tbody
+                tr 
+                  td General 
+                  td $20
+                  td 2
+              tfoot
+                tr
+                  td 
+                  th Subtotal
+                  td $40
+            p
+              a.btn.btn-sm.btn-outline-secondary(href=`/cuarta?id=${evento._id}`) Ver 
           //compra de entradas
 
-      .col-md-4
-        .position-sticky(style='top: 2rem;')
-          .p-4.mb-3.bg-body-tertiary.rounded
-          div
-            h4.fw-bold(style='text-align: center;') Organizadores
-            ul.list-unstyled
-              li
-                img.img-fluid.rounded(src='https://cdn.buenplan.com.ec/pictures/6a19ef22-8754-4095-8a8c-8f1307316ffc.jpeg', width='130', height='130', alt='DaranViendo3', style='margin: auto;')
-              li
-                img.img-fluid.rounded(src='https://cdn.worldvectorlogo.com/logos/claro.svg', width='130', height='130', alt='DaranViendo3', style='margin: auto;')
+        .col-md-4
+            .position-sticky(style='top: 2rem;')
+              .p-4.mb-3.bg-gray.rounded.shadow-lg
+                h4.fw-bold(style='text-align: center;') Organizadores
+                ul.list-unstyled.text-center
+                  li
+                    img.img-fluid.rounded(src='https://cdn.buenplan.com.ec/pictures/6a19ef22-8754-4095-8a8c-8f1307316ffc.jpeg', width='130', height='130', alt='DaranViendo3')
+                  li
+                    img.img-fluid.rounded(src='https://cdn.worldvectorlogo.com/logos/claro.svg', width='130', height='130', alt='DaranViendo3')
           
     //Fotter
     .container
