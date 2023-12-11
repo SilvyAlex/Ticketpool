@@ -39,8 +39,8 @@ const cuarta = (req, res, next)=> {
   }
 
   const crear_pago = (req, res) => {
-    console.log(req.body)
-    const path = '/api/pagos/';
+    console.log("creando pago desde el browser: ", req.body)
+    const path2 = '/api/pagos/';
     const postdata = {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
@@ -53,13 +53,13 @@ const cuarta = (req, res, next)=> {
       vence: req.body.vence,
       cvv: req.body.cvv,
     };
-    const url = `${apiOptions.server}${path}`;
+    const url = `${apiOptions.server}${path2}`;
   
     axios.post(url, postdata)
       .then(response => {
         if (response.status === 201) {
-          res.render('cuarta');
           console.log('Pago creado exitosamente', response.data);
+          res.redirect(`/confirmation?id=${response.data.id_evento}`);
         }
       })
       .catch(error => {

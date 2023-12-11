@@ -4,25 +4,32 @@ const pagos = mongoose.model('pago'); // el modelo me permite interactuar con la
 
 // Controladores
 const pagoCreate = (req, res) => {
+
+    console.log("API received body:", req.body);
+
+    const nuevoPago = {
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.email,
+        pais: req.body.pais,
+        ciudad: req.body.ciudad,
+        metodo: req.body.metodo,
+        tarjeta: req.body.tarjeta,  // Corregir el nombre del campo aquí
+        numero: req.body.numero,
+        vence: req.body.vence,
+        cvv: req.body.cvv,
+    }
+
     pagos
-        .create({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            pais: req.body.pais,
-            ciudad: req.body.ciudad,
-            metodo: req.body.metodo,
-            tarjeta: req.body.tarjeta,
-            numero: req.body.numero,
-            vence: req.body.vence,
-            cvv: req.body.cvv,
-        })
-        .then((objetoPago)=> {
+        .create(nuevoPago)
+        .then((objetoPago) => {
+            console.log("pago - created")
             res
                 .status(201)
                 .json(objetoPago);
         })
         .catch((err) => {
+            console.log(err)
             res
                 .status(400)
                 .json(err);

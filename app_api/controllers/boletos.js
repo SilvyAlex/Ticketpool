@@ -5,11 +5,9 @@ const boletos = mongoose.model('boleto'); // el modelo me permite interactuar co
 const boletoCreate = (req, res) => {
     boletos
         .create({
-            evento: req.body.evento,
-            fecha: req.body.fecha,
-            hora: req.body.hora,
-            lugar: req.body.lugar,
-            asientos: req.body.asientos,
+            asiento: req.body.evento,
+            precio: req.body.fecha,
+            cantidad: req.body.hora,
         })
         .then((objetoBoleto)=> {
             res

@@ -7,38 +7,42 @@ const pagosSchema = new mongoose.Schema({
     },
     apellido: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String, 
-        required: true
+        // required: true
     },
     pais: {
-        type: [String], 
-        required: true
+        type: String, 
+        // required: true
     },
     ciudad: {
-        type: [String], 
-        required: true
+        type: String, 
+        // required: true
     },
     metodo: {
-        type: [String], 
-        required: true
+        type: String, 
+        // required: true
     },
     tarjeta: {
         type: String, 
-        required: true
+        // required: true
     },
     numero: {
         type: String, 
-        required: true
+        // required: true
     },
     vence: {
         type: String, 
-        required: true
+        // required: true
     },
     cvv: {
         type: String
+    },
+    id_evento: {
+        type: String,
+        required: true
     }
 });
 
@@ -51,10 +55,11 @@ const pago = new Pago({
     pais: 'Ecuador',
     ciudad: 'Quito',
     metodo: 'Debito',
-    targeta: 'Juan Perez',
+    tarjeta: 'Juan Perez',
     numero: '123456789123',
     vence: '12/26',
     cvv: '123',
+    id_evento: '1657760a4d1f86c61f2ca23c3 ',
 });
 
 // user.save();

@@ -83,7 +83,7 @@ html
         .row.g-5
           .col-md-7.col-lg-8
             h4.mb-3 Datos de Compra
-            form.bg-dark.p-4.rounded.shadow-lg.needs-validation(action, method="post", role="form")
+            form.bg-dark.p-4.rounded.shadow-lg.needs-validation(action="/cuarta", method="post", role="form")
               .row.g-3
                 .col-sm-6
                   label.form-label(for='validationCustom01') Nombre
@@ -123,44 +123,44 @@ html
                     | Please provide a valid state.
               
               hr.my-4
-            h4.mb-3 Opciones de Pago 
-            .my-3
-              .form-check
-                input#credit.form-check-input(type='radio', checked='', name='metodo', required='true')
-                label.form-check-label(for='credit') Tarjeta de Crédito
-              .form-check
-                input#debit.form-check-input(type='radio', name='metodo', required='true')
-                label.form-check-label(for='debit') Tarjeta de Débito
-              .form-check
-                input#paypal.form-check-input(type='radio', name='metodo', required='true')
-                label.form-check-label(for='paypal') PayPal
-              .form-check
-                input#applepay.form-check-input(type='radio', name='metodo', required='true')
-                label.form-check-label(for='applepay') ApplePay
-            .row.gy-3
-              .col-md-6
-                label.form-label(for='cc-name') Nombre de la tarjeta
-                input#cc-name.form-control.form-control-lg(type='text', placeholder='', name='tarjeta', required='true')
-                small.text-muted Nombre completo que está en la tarjeta
-                .invalid-feedback
-                  | Nombre de la tarjeta requerido 
-              .col-md-6
-                label.form-label(for='cc-number') Número de la tarjeta
-                input#cc-number.form-control.form-control-lg(type='text', placeholder='', name='numero', required='true')
-                .invalid-feedback
-                  | Número de la tarjeta requerido
-              .col-md-3
-                label.form-label(for='cc-expiration') Fecha de vencimiento
-                input#cc-expiration.form-control.form-control-lg(type='text', placeholder='', name='vence', required='true')
-                .invalid-feedback
-                  | Fecha de vencimiento requerido 
-              .col-md-3
-                label.form-label(for='cc-cvv') CVV
-                input#cc-cvv.form-control.form-control-lg(type='text', placeholder='', name='cvv', required='true')
-                .invalid-feedback
-                  | Código de seguridad requerido 
-            hr.my-4
-            a.btn.btn-sm.btn-outline-secondary(type='submit', href=`/confirmation?id=${evento._id}`) Comprar
+              h4.mb-3 Opciones de Pago 
+              .my-3
+                .form-check
+                  input#credit.form-check-input(type='radio', checked='', name='metodo', required='true')
+                  label.form-check-label(for='credit') Tarjeta de Crédito
+                .form-check
+                  input#debit.form-check-input(type='radio', name='metodo', required='true')
+                  label.form-check-label(for='debit') Tarjeta de Débito
+                .form-check
+                  input#paypal.form-check-input(type='radio', name='metodo', required='true')
+                  label.form-check-label(for='paypal') PayPal
+                .form-check
+                  input#applepay.form-check-input(type='radio', name='metodo', required='true')
+                  label.form-check-label(for='applepay') ApplePay
+              .row.gy-3
+                .col-md-6
+                  label.form-label(for='cc-name') Nombre de la tarjeta
+                  input#cc-name.form-control.form-control-lg(type='text', placeholder='', name='tarjeta', required='true')
+                  small.text-muted Nombre completo que está en la tarjeta
+                  .invalid-feedback
+                    | Nombre de la tarjeta requerido 
+                .col-md-6
+                  label.form-label(for='cc-number') Número de la tarjeta
+                  input#cc-number.form-control.form-control-lg(type='text', placeholder='', name='numero', required='true')
+                  .invalid-feedback
+                    | Número de la tarjeta requerido
+                .col-md-3
+                  label.form-label(for='cc-expiration') Fecha de vencimiento
+                  input#cc-expiration.form-control.form-control-lg(type='text', placeholder='', name='vence', required='true')
+                  .invalid-feedback
+                    | Fecha de vencimiento requerido 
+                .col-md-3
+                  label.form-label(for='cc-cvv') CVV
+                  input#cc-cvv.form-control.form-control-lg(type='text', placeholder='', name='cvv', required='true')
+                  .invalid-feedback
+                    | Código de seguridad requerido 
+              hr.my-4
+              button(type='submit') Comprar
 
           
           
