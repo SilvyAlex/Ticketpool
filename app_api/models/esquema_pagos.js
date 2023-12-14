@@ -59,7 +59,7 @@ const pago = new Pago({
     numero: '123456789123',
     vence: '12/26',
     cvv: '123',
-    id_evento: '1657760a4d1f86c61f2ca23c3 ',
+    id_evento: '1657760a4d1f86c61f2ca23c3',
 });
 
 // user.save();

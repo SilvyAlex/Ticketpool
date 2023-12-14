@@ -21,6 +21,7 @@ const apiRouter = require('./app_api/routes/index');  // rutas REST API
 const apiboletosRouter = require('./app_api/routes/boletos');  // rutas REST API
 const apipagosRouter = require('./app_api/routes/pagos');  // rutas REST API
 const apiusersRouter = require('./app_api/routes/index_users');  // rutas REST API
+const { log } = require('console');
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+console.log("carpeta public" ,path.join(__dirname, 'public'))
 
 //Definicion de cuando usar los routers
 app.use('/', indexRouter);
@@ -44,6 +46,7 @@ app.use('/users', usersRouter);
 app.use('/eventos', eventosRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/confirmation', confirmationRouter);
+
 
 
 //Api routess

@@ -52,6 +52,7 @@ const cuarta = (req, res, next)=> {
       numero: req.body.numero,
       vence: req.body.vence,
       cvv: req.body.cvv,
+      id_evento: req.body.id_evento,
     };
     const url = `${apiOptions.server}${path2}`;
   

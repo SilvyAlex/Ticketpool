@@ -14,10 +14,11 @@ const pagoCreate = (req, res) => {
         pais: req.body.pais,
         ciudad: req.body.ciudad,
         metodo: req.body.metodo,
-        tarjeta: req.body.tarjeta,  // Corregir el nombre del campo aquí
+        tarjeta: req.body.tarjeta,  
         numero: req.body.numero,
         vence: req.body.vence,
         cvv: req.body.cvv,
+        id_evento: req.body.id_evento,
     }
 
     pagos
