@@ -7,6 +7,21 @@ document.addEventListener('DOMContentLoaded', function () {
     let cantidadGeneral = 0;
     let subtotal = 0;
 
+    // Recuperar datos almacenados en localStorage
+    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+
+    // Restaurar los asientos seleccionados desde localStorage
+    selectedSeats.forEach((seatNumber) => {
+        const seatCheckbox = document.getElementById(seatNumber);
+        if (seatCheckbox) {
+            seatCheckbox.checked = true;
+            addSeatToTable(seatNumber, 20); // Asumiendo un precio fijo de $20 por asiento
+        }
+    });
+
+    // Actualizar la tabla y los contadores
+    updateTable();
+
     seatsContainer.forEach((seatCheckbox) => {
         seatCheckbox.addEventListener('change', function () {
             const seatLabel = this.nextElementSibling;
@@ -18,24 +33,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 cantidadGeneral++;
                 subtotal += seatPrice;
 
-                // Actualizar la tabla
-                cantidadGeneralCell.textContent = cantidadGeneral;
-                subtotalCell.textContent = `$${subtotal}`;
-
                 // Agregar el asiento seleccionado a la tabla
                 addSeatToTable(seatNumber, seatPrice);
+
+                // Actualizar datos en localStorage
+                selectedSeats.push(seatNumber);
+                localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             } else {
                 // Decrementar cantidad y subtotal
                 cantidadGeneral--;
                 subtotal -= seatPrice;
 
-                // Actualizar la tabla
-                cantidadGeneralCell.textContent = cantidadGeneral;
-                subtotalCell.textContent = `$${subtotal}`;
-
                 // Eliminar el asiento deseleccionado de la tabla
                 removeSeatFromTable(seatNumber);
+
+                // Actualizar datos en localStorage
+                const index = selectedSeats.indexOf(seatNumber);
+                if (index !== -1) {
+                    selectedSeats.splice(index, 1);
+                    localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+                }
             }
+
+            // Actualizar la tabla y los contadores
+            updateTable();
         });
     });
 
@@ -47,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         seatCell.textContent = seatNumber;
         priceCell.textContent = `$${seatPrice}`;
-        quantityCell.textContent = '1'; // Assuming you always add one seat at a time
+        quantityCell.textContent = '1'; // Asumiendo que siempre se agrega un asiento a la vez
 
         row.appendChild(seatCell);
         row.appendChild(priceCell);
@@ -67,5 +88,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 break;
             }
         }
+    }
+
+    function updateTable() {
+        // Actualizar la tabla y los contadores
+        cantidadGeneralCell.textContent = cantidadGeneral;
+        subtotalCell.textContent = `$${subtotal}`;
     }
 });

@@ -68,6 +68,7 @@ const cuarta = (req, res, next)=> {
         console.log('error: ', error.message);
         res.render('error', { mensaje: 'Existe un error en la colección de pagos' })
       });
+      
   }
 
 module.exports = {

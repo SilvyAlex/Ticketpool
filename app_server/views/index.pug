@@ -7,7 +7,7 @@ html
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", rel="stylesheet")
     // bootstrap js and popper
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
-    link(rel='icon', href='/favicon.ico', type='image/x-icon')
+    link(rel='icon', href='/images/logo.png', type='image/x-icon')
   body
     header.p-3.text-bg-dark
       .container
@@ -61,20 +61,10 @@ html
       button.carousel-control-next(type='button', data-bs-target='#myCarousel', data-bs-slide='next')
         span.carousel-control-next-icon(aria-hidden='true')
         span.visually-hidden Next
-    //opciones
-    .container
-      header.d-flex.justify-content-center.py-3
-        ul.nav.nav-pills
-          li.nav-item
-            button.btn.btn-outline-danger(type='button') Aproximados
-          li.nav-item
-            button.btn.btn-outline-danger(type='button') Recomendados
-          li.nav-item
-            button.btn.btn-outline-danger(type='button') Conferencias
     // opciones de conciertos de cadas recomendcion de boton
     .album.py-5.bg-body-tertiary
       .pb-2.border-bottom
-        h2 Aproximados 
+        h3(style='text-align: center;') Eventos Disponibles
         .container
           .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
             each evento in eventos
