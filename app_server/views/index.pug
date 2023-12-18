@@ -8,6 +8,7 @@ html
     // bootstrap js and popper
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js")  
     link(rel='icon', href='/images/logo.png', type='image/x-icon')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.23.0/index.umd.min.js')
   body
     header.p-3.text-bg-dark
       .container
@@ -27,41 +28,26 @@ html
     //carrusel
     #myCarousel.carousel.slide.mb-6.pointer-event(data-bs-ride='carousel')
       .carousel-indicators
-        button.active(type='button', data-bs-target='#myCarousel', data-bs-slide-to='0', aria-label='Slide 1', aria-current='true')
-        button(type='button', data-bs-target='#myCarousel', data-bs-slide-to='1', aria-label='Slide 2')
-        button(type='button', data-bs-target='#myCarousel', data-bs-slide-to='2', aria-label='Slide 3')
+        each evento, index in eventos
+          button(type='button', data-bs-target='#myCarousel', data-bs-slide-to=index, aria-label=`Slide ${index + 1}`, aria-current=index === 0 ? 'true' : 'false')
       .carousel-inner
-        .carousel-item.active
-          img(src='https://www.24horas.cl/24horas/site/artic/20220909/imag/foto_0000000820220909191755/jj.jpg', alt='Slide 1', width='100%', height='100%')
-          .container
-            .carousel-caption.text-start
-              h1 Jesse & Joy
-              p.opacity-75 Septiembre 15, 20:00, 2023
-              p
-                a.btn.btn-lg.btn-danger(href='/segunda') Comprar 
-        .carousel-item
-          img(src='https://www.prensariomusica.com/Multimedios/imgs/57313_750.jpg', alt='Slide 2', width='100%', height='100%')
-          .container
-            .carousel-caption
-              h1 Rauw Alejandro
-              p 8 de octubre del 2023
-              p
-                a.btn.btn-lg.btn-danger(href='/segunda') Comprar
-        .carousel-item
-          img(src='https://www.larepublica.ec/wp-content/uploads/2023/09/miko.jpg', alt='Slide 3', width='100%', height='100%')
-          .container
-            .carousel-caption.text-end
-              h1 Young Miko
-              p 23 de septiembre del 2023
-              p
-                a.btn.btn-lg.btn-danger(href='/segunda') Comprar
+        each evento, index in eventos
+          .carousel-item(class=index === 0 ? 'active' : '')
+            img(src=evento.imagen, alt=`Slide ${index + 1}`, width='100%', height='100%')
+            .container
+              .carousel-caption(class=index === 0 ? 'text-start' : 'text-end')
+                h1= evento.nombre
+                p.opacity-75= evento.fecha
+                p
+                  a.btn.btn-lg.btn-danger(href=`/segunda?id=${evento._id}`) Comprar 
       button.carousel-control-prev(type='button', data-bs-target='#myCarousel', data-bs-slide='prev')
         span.carousel-control-prev-icon(aria-hidden='true')
         span.visually-hidden Previous
       button.carousel-control-next(type='button', data-bs-target='#myCarousel', data-bs-slide='next')
         span.carousel-control-next-icon(aria-hidden='true')
         span.visually-hidden Next
-    // opciones de conciertos de cadas recomendcion de boton
+
+    // Opciones de conciertos de cada recomendación de botón
     .album.py-5.bg-body-tertiary
       .pb-2.border-bottom
         h3(style='text-align: center;') Eventos Disponibles
@@ -78,6 +64,7 @@ html
                       .btn-group
                         a.btn.btn-sm.btn-outline-secondary(href=`/segunda?id=${evento._id}`) Ver 
                       small.text-body-secondary= evento.fecha
+
     //Servicios
     .container(data-aos='fade-up')
         .section-title

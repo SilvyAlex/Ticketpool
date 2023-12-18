@@ -34,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_public')));
 console.log("carpeta public" ,path.join(__dirname, 'public'))
 
 //Definicion de cuando usar los routers
@@ -47,6 +48,10 @@ app.use('/eventos', eventosRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/confirmation', confirmationRouter);
 
+
+app.get('/test-react', (req, res) => {
+  res.render('reactComponent');
+});
 
 
 //Api routess
