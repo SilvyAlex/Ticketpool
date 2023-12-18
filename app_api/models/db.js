@@ -9,6 +9,7 @@ require('./esquema_eventos'); // definición del esquema
 require('./esquema_boletos');
 require('./esquema_pagos');
 require('./esquema_users');
+require('./esquema_comentarios');
 //require('./esquema_users');
 
 // escuchar el evento e windows SIGINT

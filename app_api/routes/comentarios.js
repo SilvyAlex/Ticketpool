@@ -14,8 +14,5 @@ router
     .put(ctrlComentarios.comentarioUpdate)
     .delete(ctrlComentarios.comentarioDelete);
 
-router
-    .route('/search/:name')
-    .get(ctrlComentarios.comentarioFindName);
 
 module.exports = router;

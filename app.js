@@ -21,6 +21,7 @@ const apiRouter = require('./app_api/routes/index');  // rutas REST API
 const apiboletosRouter = require('./app_api/routes/boletos');  // rutas REST API
 const apipagosRouter = require('./app_api/routes/pagos');  // rutas REST API
 const apiusersRouter = require('./app_api/routes/index_users');  // rutas REST API
+const apicomentariosRouter = require('./app_api/routes/comentarios');  // rutas REST API
 const { log } = require('console');
 
 const app = express();
@@ -45,12 +46,14 @@ app.use('/cuarta', cuartaRouter);
 app.use('/registro', registroRouter);
 app.use('/users', usersRouter);
 app.use('/eventos', eventosRouter);
-app.use('/comentarios', comentariosRouter);
 app.use('/confirmation', confirmationRouter);
 
+// antes, usando la vieja vista pug
+// app.use('/comentarios', comentariosRouter);
 
-app.get('/test-react', (req, res) => {
-  res.render('reactComponent');
+// ahora, usando la nueva vista que contiene React
+app.get('/comentarios', (req, res) => {
+  res.render('comentariosReact');
 });
 
 
@@ -59,6 +62,7 @@ app.use('/api', apiRouter);
 app.use('/api', apiboletosRouter);
 app.use('/api', apipagosRouter);
 app.use('/api', apiusersRouter);
+app.use('/api', apicomentariosRouter);
 
 
 // catch 404 and forward to error handler

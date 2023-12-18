@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^9.1.3",
     "babel-preset-env": "^1.7.0",
@@ -17,7 +18,8 @@
   },
   "scripts": {
     "start": "set PORT=3030 && react-scripts start",
-    "build": "react-scripts build",
+    "build-local": "set REACT_APP_MODE=development && react-scripts build",
+    "build-heroku": "set REACT_APP_MODE=production && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
