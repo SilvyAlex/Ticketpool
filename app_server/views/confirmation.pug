@@ -14,13 +14,13 @@ html
     .container.my-5(style='background: linear-gradient(to bottom, #000000, #666666);')
       .position-relative.p-5.text-center.text-muted.bg-body.border.border-dashed.rounded-5
         a.position-absolute.top-0.end-0.p-3.m-3.btn-close.bg-secondary.bg-opacity-10.rounded-pill(href='/', aria-label='Close')
-        img.img-fluid(src='https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png', alt='QR', width='100', height='100', class='bi mt-5 mb-3')
+        //img.img-fluid(src='https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png', alt='QR', width='100', height='100', class='bi mt-5 mb-3')
         h1.text-body-emphasis Disfruta de tu evento
         p.col-lg-6.mx-auto.mb-4= evento.nombre
         p.col-lg-6.mx-auto.mb-4= evento.fecha
         p.col-lg-6.mx-auto.mb-4= evento.ubicacion
         p.col-lg-6.mx-auto.mb-4= evento.genero
         p.col-lg-6.mx-auto.mb-4
-          | 6 entradas
+          subtotal {subtotal}
         a.btn.btn-danger.px-5.mb-5(href='/')
           | Seguir explorando más eventos

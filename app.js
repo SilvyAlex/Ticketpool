@@ -56,6 +56,11 @@ app.get('/comentarios', (req, res) => {
   res.render('comentariosReact');
 });
 
+//Pasar la info a confirmación
+app.get('/confirmacion', (req, res) => {
+  const subtotal = " " // obtén el subtotal aquí
+  res.render('confirmacion', {subtotal});
+});
 
 //Api routess
 app.use('/api', apiRouter);

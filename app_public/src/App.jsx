@@ -46,21 +46,25 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Crear Comentario</h1>
-      <p>Correo</p>
-      <input
-        type="text"
-        value={correo}
-        onChange={e => actualizar_correo(e.target.value)}
-      />
-      <p>Comentario</p>
-      <input
-        type="text"
-        value={comentario}
-        onChange={e => actualizar_comentario(e.target.value)}
-      />
-      <button onClick={crear_comentario}>Crear Comentario</button>
+    <div class="form-signin w-100 m-auto">
+      <h1>Ticketpool</h1>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Correo</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="exampleFormControlInput1" 
+          placeholder="nombre@gmail.com" 
+          value={correo} 
+          onChange={e => actualizar_correo(e.target.value)} 
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+        <textarea class="form-control" type="text" value={comentario} onChange={e => actualizar_comentario(e.target.value)} id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      
+      <button class="btn btn-danger" onClick={crear_comentario}>Crear Comentario</button>
     </div>
   );
 }
